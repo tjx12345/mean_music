@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>传智音乐</title>
+</head>
+
+<body>
+    <link href="/public/css/register.css" rel="stylesheet" type="text/css" />
+    <div class="aw-register-box" ng-controller="registerController">
+        <div class="mod-head">
+            <a href="/"></a>
+            <h1>注册新用户</h1>
+            <div><strong style="color:red;">{{msg}}</strong></div>
+        </div>
+        <div class="mod-body">
+            <form id="frm" class="aw-register-form" method="post" ng-submit="doSubmit()">
+                <ul>
+                    <li class="alert alert-danger hide error_message text-left">
+                        <i class="icon icon-delete"></i> <em></em>
+                    </li>
+                    <li>
+                        <input class="aw-register-name form-control" type="text" name="username" placeholder="用户名" ng-model="data.username" ng-blur="checkUsername()" />
+                    </li>
+                    <li>
+                        <input class="aw-register-email form-control" type="text" placeholder="邮箱" name="email" value="" id="email" ng-model="data.email" />
+                        <div id="email-check"></div>
+                    </li>
+                    <li>
+                        <input class="aw-register-pwd form-control" type="password" name="password" placeholder="密码" id="pwd" ng-model="data.password" ng-change="checkPwd()" />
+                    </li>
+                    <check-pwd level="pwdLevel"></check-pwd>
+                    <hr/>
+                    <li class="aw-register-verify">
+                        <img class="pull-right" width="120" src="/getCaptchaPng" onclick="this.src='/getCaptchaPng?'+ (+new Date())">
+                        <input type="text" class="form-control" name="vcode" placeholder="验证码" ng-model="data.vcode" />
+                    </li>
+                    <li class="last">
+                        <label>
+                            <input type="checkbox" ng-model="isAgree" /> 我同意</label> <a href="javascript:;" class="aw-agreement-btn">用户协议</a>
+                        <a ui-sref="login" class="pull-right">已有账号?</a>
+                        <div class="aw-regiter-agreement hide">
+                            <div class="aw-register-agreement-txt" id="register_agreement"></div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <button type="submit" class="btn btn-large btn-blue btn-block">
+                            注册
+                        </button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+    // //给邮箱添加事件
+    // $('#email').blur(function() {
+    //     check2 = false;
+    //     var regex = /^[_a-zA-Z0-9_-_._-]+@([_a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,3}$/;
+    //     var email = $(this).val();
+    //     //判断是否有值
+    //     if (email.trim() === '') {
+    //         $('#email-check').html('请输入邮箱');
+    //         $('#email-check').css('color', 'red');
+    //         return;
+    //     }
+    //     if (regex.test(email)) {
+    //         check2 = true;
+    //         $('#email-check').html('可以注册');
+    //         $('#email-check').css('color', 'green');
+    //     } else {
+    //         $('#email-check').html('邮箱不合法');
+    //         $('#email-check').css('color', 'red');
+    //     }
+
+    // });
+    //给用户名添加输入事件
+    // $('#username').blur(function() {
+    //     var username = $(this).val();
+    //     if (username.length < 6 || username.length > 12) {
+    //         return alert('用户名必须在6-12位之间')
+    //     }
+    //     //发送请求
+    //     $.ajax({
+    //         url: '/check-user-name',
+    //         type: 'post',
+    //         data: {
+    //             username: username
+    //         },
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             if (data.code === '001') {
+    //                 return alert(data.msg);
+    //                 //相关还会有一些操作。
+    //                 //我们这里省略
+    //             } else {
+    //                 return alert(data.msg);
+    //                 //相关还会有一些操作。
+    //                 //我们这里省略
+    //             }
+    //         }
+    //     });
+
+    // });
+
+    //异步提交数据
+    // $('#frm').on('submit', function(e) {
+    //     e.preventDefault();
+    //     //此处省略验证
+    //     $.ajax({
+    //         url: '/doRegister',
+    //         type: 'post',
+    //         data: $('#frm').serialize(),
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             if (data.code === '001') { //注册成功跳转到登录页面
+    //                 alert(data.msg);
+    //                 window.location = '/login';
+    //             } else { //失败就提示注册失败信息
+    //                 alert(data.msg);
+    //             }
+
+
+    //         }
+    //     });
+    // });
+    </script>
+</body>
+
+</html>

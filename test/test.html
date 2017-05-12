@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VividCortex reCaptcha Directive Example</title>
+    <link href="jquery.motionCaptcha.0.2.css">
+    <link rel="stylesheet" href="js/captcha.css" />
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="page">
+            <h1><a href="http://josscrowcroft.com/projects/motioncaptcha-jquery-plugin/" title="MotionCAPTCHA jQuery plugin">MotionCAPTCHA v0.2</a></h1>
+            <h2>&ldquo;Stop Spam, Draw Shapes&rdquo;</h2>
+            <p>In order to submit the form, you'll need to copy the shape in the box, as indicated :)
+                <br />Make sure to check out the <a href="http://josscrowcroft.com/projects/motioncaptcha-jquery-plugin/" title="MotionCAPTCHA jQuery plugin">plugin homepage</a> to find out more about it, or watch the <a href="https://github.com/josscrowcroft/MotionCAPTCHA" target="_blank" title="MotionCAPTCHA Github repository">MotionCAPTCHA Github repo</a> to be notified when the plugin is production-ready.</p>
+            <!-- The form that MC will act on: -->
+            <form action="#" method="post" id="mc-form">
+                <p>
+                    <input class="placeholder" type="text" placeholder="your name &hellip;">
+                </p>
+                <p>
+                    <input class="placeholder" type="email" placeholder="your email address &hellip;">
+                </p>
+                <p>
+                    <textarea class="placeholder" placeholder="your message &hellip;" cols="" rows="3"></textarea>
+                </p>
+                <div id="mc">
+                    <p>Please draw the shape in the box to submit the form: (<a onclick="window.location.reload()" href="#" title="Click for a new shape">new shape</a>)</p>
+                    <canvas id="mc-canvas">
+                        Your browser doesn't support the canvas element - please visit in a modern browser.
+                    </canvas>
+                    <input type="hidden" id="mc-action" value="http://josscrowcroft.com/projects/motioncaptcha-jquery-plugin/" />
+                </div>
+                <p>
+                    <input disabled="disabled" autocomplete="false" type="submit" value="Submit">
+                </p>
+                <p><strong>NB:</strong> this is still a proof-of-concept - follow on Twitter and watch the GitHub repository to find out when it gets finished!:</p>
+                <p>
+                    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="josscrowcroft">Tweet</a> &nbsp;
+                    <g:plusone size="medium"></g:plusone>
+                    &nbsp;
+                    <a href="https://twitter.com/josscrowcroft" class="twitter-follow-button" data-show-count="false">Follow @josscrowcroft for updates</a>
+                </p>
+            </form>
+            <div class="clear"></div>
+            <p>I write about JavaScript and things: <a href="http://josscrowcroft.com" title="Joss Crowcroft">josscrowcroft.com</a>.</p>
+            <p><a href="http://openexchangerates.org" title="Free, Open Source Exchange Rates API">open exchange rates</a> &bull; <a href="http://www.cssreset.com" title="CSS Reset - 2012's most common scripts to reset CSS, documentation and guides included">css reset</a> &bull; <a href="http://josscrowcroft.github.com/money.js" title="Lightweight JavaScript curency conversion library, no dependencies">money.js</a></p>
+            <p>
+                <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://www.josscrowcroft.com/demos/motioncaptcha/"></a>
+                <noscript>
+                    <a href="http://flattr.com/thing/626394/MotionCAPTCHA-Demo" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
+                </noscript>
+            </p>
+            <p>&#12541;(&acute;&#12540;&#65344;)&#65417;</p>
+            <!--            <p><a class="twitter" href="http://twitter.com/#!/josscrowcroft" title="Joss Crowcroft on Twitter" target="_blank">josscrowcroft</a></p> -->
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <!-- HTML5 Placeholder fallback: -->
+    <script src="js/jquery.placeholder.1.1.1.min.js" type="text/javascript"></script>
+    <!-- MotionCAPTCHA: -->
+    <script src="./jquery.motionCaptcha.0.2.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        // Do the biznizz:
+        $('#mc-form').motionCaptcha({
+            shapes: ['triangle', 'x', 'rectangle', 'circle', 'check', 'zigzag', 'arrow', 'delete', 'pigtail', 'star']
+        });
+
+        // Yep:
+        $("input.placeholder").placeholder();
+    });
+    </script>
+    <script type="text/javascript">
+    // analytics
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17884149-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+    // twitter:
+    (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.async = true;
+        g.src = 'http://platform.twitter.com/widgets.js';
+        s.parentNode.insertBefore(g, s);
+    })(document, 'script');
+
+    // google plus:
+    window.___gcfg = {
+        lang: 'en-GB'
+    };
+    (function() {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+
+    // flattr
+    (function() {
+        var s = document.createElement('script'),
+            t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+    </script>
+</body>
+
+</html>
